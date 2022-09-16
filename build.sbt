@@ -1,4 +1,6 @@
 ThisBuild / scalaVersion := "3.1.3"
+ThisBuild / versionScheme := Some("early-semver")
+ThisBuild / githubWorkflowPublishTargetBranches := Seq()
 
 val commonSettings = Seq(
   scalacOptions -= "-Xfatal.warnings",
