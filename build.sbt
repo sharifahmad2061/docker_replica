@@ -1,5 +1,6 @@
+ThisBuild / scalaVersion := "3.1.3"
+
 val commonSettings = Seq(
-  scalaVersion := "3.1.3",
   scalacOptions -= "-Xfatal.warnings",
   libraryDependencies ++= Seq(
     "org.typelevel" %% "cats-effect" % "3.3.14",
