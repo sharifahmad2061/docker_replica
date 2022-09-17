@@ -2,7 +2,7 @@ package com.ahmad
 
 trait Executor[F[_]] {
   def build(build: Build): F[Hash]
-  def run(hash: Hash): F[Unit]
+  def run(hash: Hash): F[SystemState]
 }
 
 object Executor {
@@ -12,7 +12,13 @@ object Executor {
     new Executor[F] {
       private val empty: Hash = Hash(Array.emptyByteArray)
       def build(build: Build): F[Hash] = ???
-      def run(hash: Hash): F[Unit] = ???
+      def run(hash: Hash): F[SystemState] = ???
     }
 
+  private final case class KVState(state: Map[String, String])
+
+}
+
+trait SystemState {
+  def getAll: Map[String, String]
 }
