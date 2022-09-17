@@ -24,6 +24,8 @@ object Build {
     case Delete(key: String)
   }
 
+  def empty: Build = Build(Base.emptyImage, Nil)
+
 }
 
 final case class Hash(value: Array[Byte])
