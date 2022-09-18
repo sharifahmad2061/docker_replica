@@ -1,3 +1,9 @@
+val Versions =
+  new {
+    val tapir = "1.1.0"
+    val http4s = "0.23.3"
+  }
+
 ThisBuild / scalaVersion := "3.1.3"
 ThisBuild / versionScheme := Some("early-semver")
 ThisBuild / githubWorkflowPublishTargetBranches := Seq()
@@ -13,8 +19,8 @@ val commonSettings = Seq(
 val shared = project.settings(
   commonSettings,
   libraryDependencies ++= Seq(
-    "com.softwaremill.sttp.tapir" %% "tapir-core" % "1.1.0",
-    "com.softwaremill.sttp.tapir" %% "tapir-json-circe" % "1.1.0",
+    "com.softwaremill.sttp.tapir" %% "tapir-core" % Versions.tapir,
+    "com.softwaremill.sttp.tapir" %% "tapir-json-circe" % Versions.tapir,
   ),
 )
 
@@ -22,7 +28,7 @@ val server = project
   .settings(
     commonSettings,
     libraryDependencies ++= Seq(
-      "com.softwaremill.sttp.tapir" %% "tapir-http4s-server" % "1.1.0"
+      "com.softwaremill.sttp.tapir" %% "tapir-http4s-server" % Versions.tapir
     ),
   )
   .dependsOn(shared)
