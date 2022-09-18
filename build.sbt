@@ -1,6 +1,6 @@
 val Versions =
   new {
-    val tapir = "1.1.0"
+    val tapir = "1.0.6"
     val http4s = "0.23.3"
   }
 
