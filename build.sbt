@@ -10,9 +10,22 @@ val commonSettings = Seq(
   ),
 )
 
-val shared = project.settings(commonSettings)
+val shared = project.settings(
+  commonSettings,
+  libraryDependencies ++= Seq(
+    "com.softwaremill.sttp.tapir" %% "tapir-core" % "1.1.0",
+    "com.softwaremill.sttp.tapir" %% "tapir-json-circe" % "1.1.0",
+  ),
+)
 
-val server = project.settings(commonSettings).dependsOn(shared)
+val server = project
+  .settings(
+    commonSettings,
+    libraryDependencies ++= Seq(
+      "com.softwaremill.sttp.tapir" %% "tapir-http4s-server" % "1.1.0"
+    ),
+  )
+  .dependsOn(shared)
 
 val client = project.settings(commonSettings).dependsOn(shared)
 
