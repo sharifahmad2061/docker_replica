@@ -29,3 +29,4 @@ object Build {
 }
 
 final case class Hash(value: Array[Byte])
+final case class SystemState(getAll: Map[String, String])
