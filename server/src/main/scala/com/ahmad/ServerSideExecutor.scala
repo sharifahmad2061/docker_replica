@@ -3,12 +3,7 @@ package com.ahmad
 import cats.ApplicativeThrow
 import cats.implicits.*
 
-trait Executor[F[_]] {
-  def build(build: Build): F[Hash]
-  def run(hash: Hash): F[SystemState]
-}
-
-object Executor {
+object ServerSideExecutor {
   def apply[F[_]](using F: Executor[F]): Executor[F] = F
 
   def instance[F[_]: ApplicativeThrow]: Executor[F] =
@@ -29,8 +24,4 @@ object Executor {
 
   private final case class KVState(getAll: Map[String, String]) extends SystemState
 
-}
-
-trait SystemState {
-  def getAll: Map[String, String]
 }

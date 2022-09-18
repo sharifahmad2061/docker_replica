@@ -3,8 +3,8 @@ package com.ahmad
 import munit.CatsEffectSuite
 import cats.Id
 
-class ExecutorTest extends CatsEffectSuite {
-  val exec = Executor.instance[Either[Throwable, *]]
+class ServerSideExecutorTest extends CatsEffectSuite {
+  val exec = ServerSideExecutor.instance[Either[Throwable, *]]
 
   test("Build Empty Image") {
     val hash = exec.build(Build.empty)
