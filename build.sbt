@@ -1,7 +1,7 @@
 val Versions =
   new {
     val tapir = "1.0.6"
-    val http4s = "0.23.3"
+    val http4s = "0.23.16"
   }
 
 ThisBuild / scalaVersion := "3.1.3"
@@ -28,7 +28,9 @@ val server = project
   .settings(
     commonSettings,
     libraryDependencies ++= Seq(
-      "com.softwaremill.sttp.tapir" %% "tapir-http4s-server" % Versions.tapir
+      "com.softwaremill.sttp.tapir" %% "tapir-http4s-server" % Versions.tapir,
+      "org.http4s" %% "http4s-dsl" % Versions.http4s,
+      "org.http4s" %% "http4s-ember-server" % Versions.http4s,
     ),
   )
   .dependsOn(shared)
