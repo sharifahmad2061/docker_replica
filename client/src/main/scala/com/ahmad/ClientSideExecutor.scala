@@ -1,7 +1,5 @@
 package com.ahmad
 
-import java.util.concurrent.Executor
-
 object ClientSideExecutor {
 
   def instance[F[_]]: Executor[F] =
